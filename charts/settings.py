@@ -10,4 +10,4 @@ SERVICE_NAME = os.getenv('SERVICE_NAME') or 'Charts'
 SERVICE_URL = os.getenv('SERVICE_URL') or 'http://example.com'
 CONTACT_EMAIL = os.getenv('CONTACT_EMAIL') or 'team@example.com'
 API_ROOT = os.getenv('API_ROOT') or '//example.com'
-FORMS_API = os.getenv('FORMS_API') or '//forms.brace.io' # for collecting feedback on the landing page
+FORMS_API = os.getenv('FORMS_API') or '//formspree.io' # for collecting feedback on the landing page

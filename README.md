@@ -1,6 +1,6 @@
 
-CHARTS by Brace
----------------
+CHARTSPREE
+----------
 
 Make charts in seconds
 
@@ -8,7 +8,7 @@ Use our URL to inject charts into your website. The data is supplied via the URL
 
 Example:
 
-    <img src="//charts.brace.io/bar.svg?Foo=1,1,2,3,5">
+    <img src="//chartspree.io/bar.svg?Foo=1,1,2,3,5">
 
 
 ## Pies, Bars and Lines
@@ -17,15 +17,15 @@ There are 3 different types of charts. Choose one by changing the path.
 
 #### Pies
 
-    charts.brace.io/pie.svg?Things=5&Stuff=2
+    chartspree.io/pie.svg?Things=5&Stuff=2
 
 #### Bars
 
-    charts.brace.io/bar.svg?Things=lorem_exp
+    chartspree.io/bar.svg?Things=lorem_exp
 
 #### Lines
 
-    charts.brace.io/line.svg?Things=lorem_flat
+    chartspree.io/line.svg?Things=lorem_flat
 
 ## Choose a Style
 
@@ -33,11 +33,11 @@ Just by adding _style=Stylename to the URL
 
 #### Light (default)
 
-    charts.brace.io/bar.svg?Foo=lorem_exp&_style=light
+    chartspree.io/bar.svg?Foo=lorem_exp&_style=light
 
 #### Dark
 
-    charts.brace.io/bar.svg?Foo=lorem_exp&_style=dark
+    chartspree.io/bar.svg?Foo=lorem_exp&_style=dark
 
 ## Supplying data
 
@@ -47,74 +47,70 @@ You can just append the data for the chart to the URL parameters.
 
 Generally you provide DataSet=<list-of-values>. For example:
 
-    charts.brace.io/line.svg?Things=1,2,3
+    chartspree.io/line.svg?Things=1,2,3
 
 You can also have multiple datasets, like:
 
-    charts.brace.io/line.svg?Some=1,2,3&Thing=2,3,4
+    chartspree.io/line.svg?Some=1,2,3&Thing=2,3,4
 
 Finally, you can add labels to the x axis:
 
-    charts.brace.io/bar.svg?Likes=3,2,4&_labels=Jan,Feb,Mar
+    chartspree.io/bar.svg?Likes=3,2,4&_labels=Jan,Feb,Mar
 
 #### Pies
 
 For pies it's mostly the same, except you have names for sections and one value per section.
 
-    charts.brace.io/pie.svg?Some=1&Thing=2
+    chartspree.io/pie.svg?Some=1&Thing=2
 
 ## Other fancy features
 
-Here are some additional neat features that Brace Charts provide.
+Here are some additional neat features that Chartspree provide.
 
 #### Generate placeholder data
 
 If you're prototyping and need placeholder charts, we have a solution for you. Instead of providing numbers, you can just use one of these keywords.
 
-    charts.brace.io/bar.svg?Stuff=lorem_exp
+    chartspree.io/bar.svg?Stuff=lorem_exp
 
-    charts.brace.io/bar.svg?Stuff=lorem_hockey
+    chartspree.io/bar.svg?Stuff=lorem_hockey
 
-    charts.brace.io/bar.svg?Stuff=lorem_bell
+    chartspree.io/bar.svg?Stuff=lorem_bell
 
-    charts.brace.io/bar.svg?Stuff=lorem_flat
+    chartspree.io/bar.svg?Stuff=lorem_flat
 
 #### Customize the appearance of (line) charts
 
-    <img src="http://charts.brace.io/line.svg?Foo=lorem_hockey&_show_legend=false&_height=300px&_interpolate=cubic&_fill=true">
+    <img src="http://chartspree.io/line.svg?Foo=lorem_hockey&_show_legend=false&_height=300px&_interpolate=cubic&_fill=true">
 
 #### Show off with hover effects
 
 Use an <object> tag instead of images. This gives you fancy hover-states.
 
-    <object type="image/svg+xml" data="http://charts.brace.io/line.svg?Some=lorem_flat&Stuff=lorem_flat&_interpolate=cubic &_fill=true&_height=300px"></object>
+    <object type="image/svg+xml" data="http://chartspree.io/line.svg?Some=lorem_flat&Stuff=lorem_flat&_interpolate=cubic &_fill=true&_height=300px"></object>
 
 ## Questions you might have
 
 #### How much does it cost?
 
-For now, Brace Charts is free and is limited to 10,000 views per chart per month. If you need more, please reach out to team@brace.io.
+For now, Chartspree is free and is limited to 10,000 views per chart per month. If you need more, please reach out to team@chartspree.io.
 
 #### What charting library did you use?
 
-Brace Charts is based on pygal, an awesome charting library for Python.
-
-#### Who are you guys?
-
-We're the same folks who make Brace.io, the simple way to host websites. Brace Charts is one of our sideprojects that aim to make authoring and designing for the web easy.
+Chartspree is based on pygal, an awesome charting library for Python.
 
 --------
 
 
 
-Running your own copy of Brace Charts 
+Running your own copy of Chartspree 
 ------------------------------------
 
 ### Running on localhost
 
 You'll need python 2.7 and should [install pip](https://pip.pypa.io/en/latest/installing.html), and create a [virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/) for the server. 
 
-Once your environment is setup, clone the source and cd into the root of the Brace Charts repository. Then run:
+Once your environment is setup, clone the source and cd into the root of the Chartspree repository. Then run:
 
     pip install -r requirements.txt
 
@@ -127,9 +123,9 @@ then
 
 You will need to install the [heroku toolbelt](https://toolbelt.heroku.com/).
 
-Once your environment is setup, clone the source and cd into the root of the Brace Charts repository. Then run:
+Once your environment is setup, clone the source and cd into the root of the Chartspree repository. Then run:
 
-    heroku app:create [your project name]
+    heroku apps:create [your project name]
 
 then
 
@@ -140,12 +136,12 @@ Your new project will be running at [your project name].herokuapp.com.
 
 ### Dependencies
 
-Brace Charts requires Redis. If you're deploying to heroku you can get an addon, such as redistogo. To install redistogo into your project just run the command:
+Chartspree requires Redis. If you're deploying to heroku you can get an addon, such as redistogo. To install redistogo into your project just run the command:
 
     heroku addons:add redistogo
 
 
-### Configuring Brace Charts
+### Configuring Chartspree
 
 Take a look at the `charts/settings.py` file for a list of environment variables that should be set in order for Charts to work correctly.
 
