@@ -59,7 +59,7 @@ def _loads(val):
                     return val
 
 
-def renderchart(kind):
+def renderchart(kind, fmt):
 
     # get chart kind
 
@@ -148,6 +148,8 @@ def renderchart(kind):
 
     if kind.lower() == 'sparkline':
         rendered = chart.render_sparkline()
+    elif fmt.lower() == 'png':
+        rendered = chart.render_to_png()
     else:
         rendered = chart.render()
 
@@ -164,7 +166,10 @@ def renderchart(kind):
     charturl = re.sub(r"\W", "_", request.url.split(u"://")[1])
     REDIS.incr(CHART_KEY(charturl))
 
-    return Response(rendered, mimetype='image/svg+xml')
+    if fmt.lower() == 'png':
+        return Response(rendered, mimetype='image/png')
+    else:
+        return Response(rendered, mimetype='image/svg+xml')
 
 
 def print_stats():
@@ -195,7 +200,7 @@ def favicon():
 def configure_routes(app):
     app.add_url_rule('/', 'index', view_func=index, methods=['GET'])
     app.add_url_rule('/favicon.ico', view_func=favicon)
-    app.add_url_rule('/<kind>.svg', 'send', view_func=renderchart, methods=['GET'])
+    app.add_url_rule('/<kind>.<fmt>', 'send', view_func=renderchart, methods=['GET'])
 
 
 def create_app():
