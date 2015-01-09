@@ -7,8 +7,8 @@ app = create_app()
 manager = Manager(app)
 
 @manager.command
-def run(port=5000):
-    app.run(port=int(port))
+def run_debug(port=5000):
+    app.run(host='0.0.0.0', debug=True, port=int(port))
 
 @manager.command
 def stats():
