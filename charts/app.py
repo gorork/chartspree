@@ -16,7 +16,10 @@ from pygal import style
 import loremdata
 
 TEMPPATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
-CHARTCSS = os.path.join(TEMPPATH, 'chartbase.css')
+CHARTCSS = {
+  'svg': os.path.join(TEMPPATH, 'chartbase-svg.css'),
+  'png': os.path.join(TEMPPATH, 'chartbase-png.css'),
+}
 REDIS = redis.Redis.from_url(settings.REDIS_URL)
 COUNTER_KEY = lambda x: 'charts_domain_counter_%s' % x
 CHART_KEY = lambda x: 'charts_chart_counter_%s' % x
@@ -59,7 +62,7 @@ def _loads(val):
                     return val
 
 
-def renderchart(kind):
+def renderchart(kind, fmt='svg'):
 
     # get chart kind
 
@@ -131,7 +134,7 @@ def renderchart(kind):
 
     params.update(configs)
     config = pygal.Config(no_prefix=True, **params)
-    config.css.append(CHARTCSS)
+    config.css.append(CHARTCSS[fmt])
 
     # write out chart
 
@@ -151,6 +154,10 @@ def renderchart(kind):
     else:
         rendered = chart.render()
 
+    if fmt.lower() == 'png':
+        import cairosvg
+        rendered = cairosvg.svg2png(bytestring=rendered, dpi=72)
+
     # tracking
 
     if request.referrer:
@@ -164,7 +171,10 @@ def renderchart(kind):
     charturl = re.sub(r"\W", "_", request.url.split(u"://")[1])
     REDIS.incr(CHART_KEY(charturl))
 
-    return Response(rendered, mimetype='image/svg+xml')
+    if fmt.lower() == 'png':
+        return Response(rendered, mimetype='image/png')
+    else:
+        return Response(rendered, mimetype='image/svg+xml')
 
 
 def print_stats():
@@ -195,7 +205,7 @@ def favicon():
 def configure_routes(app):
     app.add_url_rule('/', 'index', view_func=index, methods=['GET'])
     app.add_url_rule('/favicon.ico', view_func=favicon)
-    app.add_url_rule('/<kind>.svg', 'send', view_func=renderchart, methods=['GET'])
+    app.add_url_rule('/<kind>.<fmt>', 'send', view_func=renderchart, methods=['GET'])
 
 
 def create_app():
