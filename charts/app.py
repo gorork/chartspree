@@ -199,7 +199,7 @@ def configure_routes(app):
 
 
 def create_app():
-    app = flask.Flask('charts')
+    app = flask.Flask(__name__)
     app.config.from_object(settings)
     configure_routes(app)
 
