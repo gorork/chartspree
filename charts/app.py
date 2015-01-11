@@ -16,7 +16,10 @@ from pygal import style
 import loremdata
 
 TEMPPATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
-CHARTCSS = os.path.join(TEMPPATH, 'chartbase.css')
+CHARTCSS = {
+  'svg': os.path.join(TEMPPATH, 'chartbase-svg.css'),
+  'png': os.path.join(TEMPPATH, 'chartbase-png.css'),
+}
 REDIS = redis.Redis.from_url(settings.REDIS_URL)
 COUNTER_KEY = lambda x: 'charts_domain_counter_%s' % x
 CHART_KEY = lambda x: 'charts_chart_counter_%s' % x
@@ -59,7 +62,7 @@ def _loads(val):
                     return val
 
 
-def renderchart(kind, fmt):
+def renderchart(kind, fmt='svg'):
 
     # get chart kind
 
@@ -131,7 +134,7 @@ def renderchart(kind, fmt):
 
     params.update(configs)
     config = pygal.Config(no_prefix=True, **params)
-    config.css.append(CHARTCSS)
+    config.css.append(CHARTCSS[fmt])
 
     # write out chart
 
@@ -146,12 +149,13 @@ def renderchart(kind, fmt):
         except ValueError:
             pass
 
-    if kind.lower() == 'sparkline':
-        rendered = chart.render_sparkline()
+    if fmt.lower() == 'svg':
+      if kind.lower() == 'sparkline':
+          rendered = chart.render_sparkline()
+      else:
+          rendered = chart.render()
     elif fmt.lower() == 'png':
         rendered = chart.render_to_png()
-    else:
-        rendered = chart.render()
 
     # tracking
 
