@@ -149,13 +149,14 @@ def renderchart(kind, fmt='svg'):
         except ValueError:
             pass
 
-    if fmt.lower() == 'svg':
-      if kind.lower() == 'sparkline':
-          rendered = chart.render_sparkline()
-      else:
-          rendered = chart.render()
-    elif fmt.lower() == 'png':
-        rendered = chart.render_to_png()
+    if kind.lower() == 'sparkline':
+        rendered = chart.render_sparkline()
+    else:
+        rendered = chart.render()
+
+    if fmt.lower() == 'png':
+        import cairosvg
+        rendered = cairosvg.svg2png(bytestring=rendered, dpi=72)
 
     # tracking
 
