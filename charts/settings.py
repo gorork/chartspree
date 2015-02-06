@@ -11,3 +11,4 @@ SERVICE_URL = os.getenv('SERVICE_URL') or 'http://example.com'
 CONTACT_EMAIL = os.getenv('CONTACT_EMAIL') or 'team@example.com'
 API_ROOT = os.getenv('API_ROOT') or '//example.com'
 FORMS_API = os.getenv('FORMS_API') or '//formspree.io' # for collecting feedback on the landing page
+ASSEMBLY_URL = os.getenv('ASSEMBLY_URL') or 'http://assembly.com'
