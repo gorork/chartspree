@@ -143,5 +143,10 @@ Chartspree requires Redis. If you're deploying to heroku you can get an addon, s
 
 ### Configuring Chartspree
 
-Take a look at the `charts/settings.py` file for a list of environment variables that should be set in order for Charts to work correctly.
+Take a look at the `charts/settings.py` file for a list of environment variables that should be set 
+in order for Charts to work correctly.
 
+You can set these environment variables by creating a new file called `dev.env` in the root of the
+project and then use [Foreman](http://ddollar.github.io/foreman/) to run the application.
+
+    foreman start -e dev.env
