@@ -1,9 +1,12 @@
-$green: #7178b8;
-$dark-green: #4e5381;
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+$font-code:     "PT Mono", "source-code-pro", sans-serif;
 
-$dark-blue: #1b3544;
-$accent-blue: #f1f1fa;
-$accent: #ddd;
+$green:         #7178b8;
+$dark-green:    #4e5381;
+
+$dark-blue:     #1b3544;
+$accent-blue:   #f1f1fa;
+$accent:        #ddd;
 
 @import 'normalize.scss';
 @import 'grid.scss';
@@ -79,7 +82,9 @@ $accent: #ddd;
 .card {
     padding: 0.9em;
     background: #fff;
-    border: 1px solid $accent;
+    border: 2px solid rgba(113, 120, 184, 0.5);
+    text-align: center;
+    border-radius: 5px;
 }
 
 .row.grey {
@@ -92,9 +97,9 @@ p {
 }
 
 p.code {
-    font-size: 0.8em;
-    font-family: "source-code-pro";
-    border: 1px solid $accent;
+    font-size: 0.65em; //0.8em;
+    font-family: $font-code;
+    //border: 1px solid $accent;
     background: #fff;
     @media (max-width: 760px) {
         overflow: auto;

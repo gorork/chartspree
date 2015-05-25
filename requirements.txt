@@ -7,7 +7,7 @@ itsdangerous==0.23
 lxml==3.3.3
 wsgiref==0.1.2
 cffi
--e git+https://github.com/colevscode/pygal.git#egg=pygal
+-e git+https://github.com/gorork/pygal.git#egg=pygal
 gunicorn
 redis
 CairoSVG

@@ -124,7 +124,7 @@ def renderchart(kind, fmt='svg'):
         'major_label_font_size':18,
         'legend_font_size':24,
         'title_font_size':24,
-        'show_y_guides':False,
+        'show_y_guides':True,
         'show_x_guides':False,
         'print_values':False,
         'y_labels_major_count':3,

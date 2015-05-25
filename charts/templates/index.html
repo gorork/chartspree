@@ -54,9 +54,10 @@ some cases may stretch layouts. So, we're just hiding it.
             <h1 style="font-weight: 900;">Make charts in seconds</h1>
             <h3 class="light">Use our URL to inject charts into your website. The data is supplied via the URL, no Javascript required. Plus, if you need Lorem Ipsum charts, <a href="#lorem">we've got you covered.</a></h3>
             </div>
-            <div class="col-1-2">
+            <div id="default-bars" class="col-1-2">
                 <p>Example:</p>
-<img src="{{config.API_ROOT}}/bar.svg?Foo=1,1,2,3,6&_height=250px" alt="">
+                <!--<img src="{{config.API_ROOT}}/bar.svg?Foo=1,1,2,3,6&_height=250px" alt="">-->
+                <object data="{{config.API_ROOT}}/bar.svg?Foo=2,9,3,5,3,8&Oof=1,4,7,8,4,5&More=5,3,6,7,2,7&_height=300px&_rounded_bars=4&_legend_box_size=20&_style=NewBarsStyle"></object>
                 <p class="code card">
                   &lt;img <span class="tooltip hint--top" data-hint="Use our URL">src="{{config.API_ROOT}}</span>/<span class="tooltip hint--top" data-hint="Select a Chart">bar.svg</span>?<span class="tooltip hint--top" data-hint="Data is part of the URL">Foo=1,1,2,3,5</span>"&gt;
                 </p>
@@ -97,7 +98,7 @@ some cases may stretch layouts. So, we're just hiding it.
           </div>
           <div class="col-1-2">
               <h3>Light (default)</h3>
-              <img src="{{config.API_ROOT}}/bar.svg?Foo=lorem_exp&_height=250px&_style=light">
+              <img src="{{config.API_ROOT}}/bar.svg?Foo=lorem_exp&_height=250px&_style=CleanStyle"> <!-- light -->
               <p class="code card">{{config.API_ROOT}}/bar.svg?Foo=lorem_exp&<span class="tooltip hint--top" data-hint="Light theme is the default">_style=light</span></p>
               <h3>Dark</h3>
               <img src="{{config.API_ROOT}}/bar.svg?Foo=lorem_exp&_height=250px&_style=dark">

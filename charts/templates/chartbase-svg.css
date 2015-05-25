@@ -1,4 +1,257 @@
 text {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300; }
+
+.title {
+  font-size: 22px;
+  fill: #777; }
+
+.legends {
+  transform: translate(0px, 7px); }
+  .legends .legend {
+    cursor: default; }
+    .legends .legend text {
+      font-size: 22px;
+      fill: #777;
+      transform: translate(2px); }
+    .legends .legend rect {
+      transform: translate(0, -2px); }
+
+.axis text {
+  font-size: 14px; }
+
+.axis text.major {
+  font-size: 18px; }
+
+.series text {
+  font-size: 18px; }
+
+.tooltip text {
+  font-size: 18px;
+  color: red; }
+
+text.no_data {
+  font-size: 18px; }
+
+/*{
+background-color: {
+{
+  style.background
 }
+}
+
+;
+}
+
+path,
+line,
+rect,
+circle {
+  -webkit-transition: {
+  {
+    style.transition
+  }
+  }
+;
+  -moz-transition: {
+  {
+    style.transition
+  }
+  }
+;
+  transition: {
+  {
+    style.transition
+  }
+  }
+;
+}
+
+.graph > .background {
+  fill: {
+  {
+    style.background
+  }
+  }
+;
+}
+
+.plot > .background {
+  fill: {
+  {
+    style.plot_background
+  }
+  }
+;
+}
+
+.graph {
+  fill: {
+  {
+    style.foreground
+  }
+  }
+;
+}
+
+text.no_data {
+  fill: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.title {
+  fill: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.legends .legend text {
+  fill: {
+  {
+    style.foreground
+  }
+  }
+;
+}
+
+.legends .legend:hover text {
+  fill: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.axis .line {
+  stroke: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+*/
+.axis .guide.line {
+  stroke: #b5b5b5; }
+
+.axis .major.line {
+  stroke: #ddd; }
+
+.axis text.major {
+  stroke: #b5b5b5;
+  fill: #b5b5b5;
+  cursor: default;
+  transform: translate(-1px, -6px);
+  stroke-width: 0; }
+
+/*
+.axis.y .guides:hover .guide.line,
+.line-graph .axis.x .guides:hover .guide.line,
+.stackedline-graph .axis.x .guides:hover .guide.line,
+.xy-graph .axis.x .guides:hover .guide.line {
+  stroke: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.axis .guides:hover text {
+  fill: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.reactive {
+  fill-opacity: {
+  {
+    style.opacity
+  }
+  }
+;
+}
+
+.reactive.active,
+.active .reactive {
+  fill-opacity: {
+  {
+    style.opacity_hover
+  }
+  }
+;
+}
+
+.series text {
+  fill: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.tooltip rect {
+  fill: {
+  {
+    style.plot_background
+  }
+  }
+;
+  stroke: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.tooltip text {
+  fill: {
+  {
+    style.foreground_light
+  }
+  }
+;
+}
+
+.map-element {
+  fill: {
+  {
+    style.foreground
+  }
+  }
+;
+  stroke: {
+  {
+    style.foreground_dark
+  }
+  }
+!important;
+  opacity: .9;
+  stroke-width: 3;
+  -webkit-transition: 250ms;
+  -moz-transition: 250ms;
+  -o-transition: 250ms;
+  transition: 250ms;
+}
+
+.map-element:hover {
+  opacity: 1;
+  stroke-width: 10;
+}
+
+{{ colors }}*/
+
+/*# sourceMappingURL=chartbase-svg.css.map */
